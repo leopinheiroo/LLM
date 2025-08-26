@@ -1,0 +1,35 @@
+{
+  "name": "llm-project",
+  "version": "1.0.0",
+  "description": "LLM Project - A modern AI/LLM application",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "llm",
+    "ai",
+    "javascript",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/core": "^0.3.72",
+    "@langchain/openai": "^0.6.9",
+    "dotenv": "^16.3.1",
+    "langchain": "^0.3.31"
+  },
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
