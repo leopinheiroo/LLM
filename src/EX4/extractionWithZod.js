@@ -1,11 +1,15 @@
 import { z } from "zod";
 import { ChatOpenAI } from "@langchain/openai";
 import { createExtractionChainFromZod } from "langchain/chains";
+import dotenv from "dotenv";
+
+// Carregar variáveis de ambiente
+dotenv.config();
 
 const personSchema = z.object({
-  name: z.nullish(z.string()).describe("O nome da pessoa"),
-  hair_color: z.nullish(z.string()).describe("A cor do cabelo da pessoa, se conhecida"),
-  height_in_meters: z.nullish(z.string()).describe("Altura medida em metros"),
+  name: z.string().optional().describe("O nome da pessoa"),
+  hair_color: z.string().optional().describe("A cor do cabelo da pessoa, se conhecida"),
+  height_in_meters: z.string().optional().describe("Altura medida em metros"),
 });
 
 const llm = new ChatOpenAI({ model: "gpt-4o-mini", temperature: 0 });

@@ -37,8 +37,18 @@ async function main() {
       openAIApiKey: process.env.OPENAI_API_KEY,
     });
     const schema = {
-      topic: "covered_topic",
-      description: "Main topic covered in the text",
+      type: "object",
+      properties: {
+        topic: {
+          type: "string",
+          description: "Main topic covered in the text"
+        },
+        description: {
+          type: "string", 
+          description: "Brief description of the content"
+        }
+      },
+      required: ["topic", "description"]
     };
 
     const modelWithStructure = llm.withStructuredOutput(schema);
